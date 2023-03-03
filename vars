@@ -1,0 +1,15 @@
+# BIND_IP=x.y.z.v
+TITLE="MyTitle"
+THEME_CSS="night.css"
+# black    (default) TITLEBlack background, white text, blue links
+# white    White background, black text, blue links
+# league    Gray background, white text, blue links
+# beige    Beige background, dark text, brown links
+# night    Black background, thick white text, orange links
+# serif    Cappuccino background, gray text, brown links
+# simple    White background, black text, blue links
+# solarized    Cream-colored background, dark green text, blue links
+# moon    Dark blue background, thick grey text, blue links
+# dracula
+# sky    Blue background, thin dark text, blue links
+# blood

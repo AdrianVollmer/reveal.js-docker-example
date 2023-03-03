@@ -1,8 +1,7 @@
 <!-- .slide: class="title"  -->
-<!-- .slide: data-background-image="dist/theme/images/title-black.svg"  -->
 <h2>
     <span class="title-accent">//</span> 
-    Welcome
+    Welcome!
 </h2>
 
 to cloudogu/reveal.js-docker
