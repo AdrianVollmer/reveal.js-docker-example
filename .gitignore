@@ -9,3 +9,4 @@ log/*.log
 tmp/**
 *.swo
 *.swp
+.container_id
