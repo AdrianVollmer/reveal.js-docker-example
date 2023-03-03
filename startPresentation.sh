@@ -29,7 +29,7 @@ CONTAINER_ID=$(podman run  --detach \
     -e TITLE="$TITLE" \
     -e THEME_CSS="$THEME_CSS" \
     ${DOCKER_ARGS} \
-   cloudogu/reveal.js:4.4.0-r3-dev)
+   docker.io/cloudogu/reveal.js:4.4.0-r3-dev)
 
 # Print logs in background while waiting for container to come up
 podman logs ${CONTAINER_ID}
