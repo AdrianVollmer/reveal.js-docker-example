@@ -29,7 +29,7 @@ else
 
     echo "Creating new container..."
     # For dist/theme: Don't mount whole folder to not overwrite other files in folder (fonts, images, etc.)
-    CONTAINER_ID=$(podman run  --detach \
+    CONTAINER_ID=$(podman run  \
         $([[ -d docs/slides ]] && echo "-v $(pwd)/docs/slides:/reveal/docs/slides") \
         $([[ -d dist/theme ]] && for f in dist/theme/*.css; do echo "-v $(pwd)/${f}:/reveal/${f}"; done) \
         $([[ -d images ]] && echo "-v $(pwd)/images:/reveal/images") \
@@ -45,7 +45,6 @@ fi
 
 # Print logs in background while waiting for container to come up
 podman logs ${CONTAINER_ID}
-podman attach ${CONTAINER_ID} &
 
 if [[ "${INTERNAL}" == "true" ]]; then
     REVEAL_HOSTNAME=$(podman inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' ${CONTAINER_ID})
@@ -57,6 +56,14 @@ echo "Waiting for presentation to become available on http://${REVEAL_HOSTNAME}:
 
 until $(curl -s -o /dev/null --head --fail ${REVEAL_HOSTNAME}:${PORT}); do sleep 1; done
 
-# Bring container to foreground, so it can be stopped using ctrl+c.
-# But don't output "podman attach ${CONTAINER_ID}"
-#  bg > /dev/null
+control_c()
+{
+  podman stop "${CONTAINER_ID}" || true
+  exit 0
+}
+
+trap control_c SIGINT
+
+echo "Ready. Press CTRL-C to quit."
+
+read -r -d '' _
