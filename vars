@@ -1,15 +1,42 @@
-# BIND_IP=x.y.z.v
-TITLE="MyTitle"
-THEME_CSS="night.css"
-# black    (default) TITLEBlack background, white text, blue links
-# white    White background, black text, blue links
-# league    Gray background, white text, blue links
-# beige    Beige background, dark text, brown links
-# night    Black background, thick white text, orange links
-# serif    Cappuccino background, gray text, brown links
-# simple    White background, black text, blue links
-# solarized    Cream-colored background, dark green text, blue links
-# moon    Dark blue background, thick grey text, blue links
-# dracula
-# sky    Blue background, thin dark text, blue links
-# blood
+# The syntax of this file is unclear. See: https://github.com/containers/podman-compose/issues/370
+
+# BIND_IP=127.0.0.1
+# PORT=8000
+TITLE=MyTitle
+
+# # reveal.js Theme. One of:
+# # black.css    (default) TITLEBlack background, white text, blue links
+# # white.css    White background, black text, blue links
+# # league.css    Gray background, white text, blue links
+# # beige.css    Beige background, dark text, brown links
+# # night.css    Black background, thick white text, orange links
+# # serif.css    Cappuccino background, gray text, brown links
+# # simple.css    White background, black text, blue links
+# # solarized.css    Cream-colored background, dark green text, blue links
+# # moon.css    Dark blue background, thick grey text, blue links
+# # dracula.css
+# # sky.css    Blue background, thin dark text, blue links
+# # blood.css
+THEME_CSS=night.css
+
+# # presentation size
+# WIDTH, HEIGHT, MARGIN, MIN_SCALE, MAX_SCALE
+
+# # print speaker notes - defaults to false.
+# SHOW_NOTES_FOR_PRINTING=true
+
+# # additional reveal.js options: https://revealjs.com/config/
+# ADDITIONAL_REVEAL_OPTIONS
+
+# # additional reveal.js plugins.
+# #  - e.g. -e ADDITIONAL_PLUGINS="RevealMath"
+# #  - Add the plugin script using ADDITIONAL_SCRIPT, e.g.
+# #    ADDITIONAL_SCRIPT='<script src="plugin/math/math.js"></script>'
+# #  - External plugins have to be mounted or copied to the
+# #    /reveal folder, e.g. here:  -v $(pwd)/plugin/tagcloud:/reveal/plugin/tagcloud
+# ADDITIONAL_PLUGINS=
+
+# # ignores all of the above elements and
+# # just launches with the index.html present.
+# # Useful when mounting your own index.html.
+# SKIP_TEMPLATING=
